@@ -1,42 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/idModelo"
+    app:cardElevation="20dp"
+    app:cardCornerRadius="5dp"
     android:layout_width="195dp"
-    android:background="#D66057"
-    android:layout_height="300dp">
+    android:layout_height="300dp"
+    android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/txtNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome Café"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imgComida"
-        android:background="#010622"
-        android:layout_width="150dp"
-        android:layout_height="150dp"/>
 
-    <TextView
-        android:id="@+id/txtDescricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descrição"
-        />
+        <TextView
+            android:id="@+id/txtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idModelo"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:text="Nome Café"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <me.zhanghai.android.materialratingbar.MaterialRatingBar
-        android:id="@+id/RatingBar"
-        android:layout_width="70dp"
-        android:layout_height="70dp"/>
+        <ImageView
+            android:id="@+id/imgComida"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/txtNome"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:background="#010622" />
 
-    <ImageView
-        android:id="@+id/imgFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/txtDescricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgComida"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Descrição"
+            android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/imgShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</RelativeLayout>
+        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+            android:id="@+id/RatingBar"
+            style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDescricao"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="45dp" />
+
+        <ImageView
+            android:id="@+id/imgFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDescricao"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@+id/RatingBar"
+            android:src="@drawable/ic_baseline_favorite" />
+
+        <ImageView
+
+            android:id="@+id/imgShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtDescricao"
+            android:layout_marginTop="45dp"
+            android:layout_toRightOf="@+id/imgFavorite"
+            android:src="@drawable/ic_baseline_share" />
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+
 
