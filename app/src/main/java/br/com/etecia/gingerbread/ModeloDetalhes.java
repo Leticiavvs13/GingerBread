@@ -1,21 +1,42 @@
 package br.com.etecia.gingerbread;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
+import java.util.Objects;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-public class ModeloDetalhes extends Fragment {
-
+public class DetailActivity extends AppCompatActivity {
+    TextView textView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_modelo_detalhes, container, false);
-        return v;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_modelo_detalhes);
+        textView = findViewById(R.id.Ncafe);
+
+        Intent intent = getIntent();
+        String nome;
+        nome = intent.getStringExtra("Café");
+        textView.setText(nome);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

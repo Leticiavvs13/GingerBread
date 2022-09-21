@@ -1,6 +1,7 @@
 package br.com.etecia.gingerbread;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -76,7 +77,14 @@ public class CoffeFragment extends Fragment {
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context, cafeLista.get(holder.getAdapterPosition()).getNomeCafe(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, ModeloDetalhes.class);
+                    intent.putExtra("Café", cafeLista.get(holder.getAdapterPosition()).getNomeCafe());
+                    intent.putExtra("Foto Café", cafeLista.get(holder.getAdapterPosition()).getImagemCafe());
+                    intent.putExtra("Descrição", cafeLista.get(holder.getAdapterPosition()).getDescricaoCafe());
+                    intent.putExtra("Nota Café", cafeLista.get(holder.getAdapterPosition()).getRatingCafe());
+                    intent.putExtra("Favorito", cafeLista.get(holder.getAdapterPosition()).getFavorite());
+                    startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                    //Toast.makeText(context, cafeLista.get(holder.getAdapterPosition()).getNomeCafe(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
