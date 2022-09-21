@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +34,12 @@ public class CoffeFragment extends Fragment {
         recyclerView.hasFixedSize();
 
         cafeLista = new ArrayList<>();
-        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
-        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
-        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
-        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
-        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
-        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
-
+        cafeLista.add(new Products("Café Preto", R.drawable.coffee, "Café", 2, R.drawable.ic_baseline_favorite));
+        cafeLista.add(new Products("Café com Leite", R.drawable.coffee, "Café", 3, R.drawable.ic_baseline_favorite));
+        cafeLista.add(new Products("Capuccino", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
+        cafeLista.add(new Products("Frapuccino ", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
+        cafeLista.add(new Products("Café com Nutella", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
+        cafeLista.add(new Products("Café Expresso", R.drawable.coffee, "Café", 5, R.drawable.ic_baseline_favorite));
 
         CoffeAdapter coffeAdapter = new CoffeAdapter(getContext(), cafeLista);
         recyclerView.setAdapter(coffeAdapter);
@@ -72,7 +73,12 @@ public class CoffeFragment extends Fragment {
             holder.descricaoCafe.setText(cafeLista.get(position).getDescricaoCafe());
             holder.notaCafe.setNumStars(cafeLista.get(position).getRatingCafe());
             holder.favCafe.setImageResource(cafeLista.get(position).getFavorite());
-
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(context, cafeLista.get(holder.getAdapterPosition()).getNomeCafe(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         @Override
@@ -86,6 +92,7 @@ public class CoffeFragment extends Fragment {
             TextView descricaoCafe;
             RatingBar notaCafe;
             ImageView favCafe;
+            CardView cardView;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -94,6 +101,7 @@ public class CoffeFragment extends Fragment {
                 descricaoCafe = itemView.findViewById(R.id.txtDescricao);
                 notaCafe = itemView.findViewById(R.id.RatingBar);
                 favCafe = itemView.findViewById(R.id.imgFavorite);
+                cardView = itemView.findViewById(R.id.idModelo);
             }
         }
     }

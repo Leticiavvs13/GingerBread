@@ -11,24 +11,82 @@
         android:layout_height="550dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        app:cardElevation="20dp">
+        app:cardElevation="20dp"
+        app:cardCornerRadius="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/coffee" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="250dp"
             android:text="Nome Café"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="70dp"
-            android:src="@drawable/coffee" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="310dp"
+            android:text="Descrição"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="60dp"
+            android:text="R$10,00"
+            android:layout_gravity="bottom"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="bottom"
+           android:layout_marginBottom="20dp">
+
+           <me.zhanghai.android.materialratingbar.MaterialRatingBar
+               android:id="@+id/RatingBar"
+               style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/txtDescricao"
+               android:layout_marginLeft="20dp"
+               android:layout_marginTop="45dp" />
+
+           <ImageView
+               android:id="@+id/imgFavorite"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/txtDescricao"
+               android:layout_marginLeft="290dp"
+               android:layout_marginTop="45dp"
+               android:layout_toLeftOf="@id/idModelo"
+               android:layout_toRightOf="@+id/idModelo"
+
+               android:src="@drawable/ic_baseline_favorite" />
+
+           <ImageView
+               android:id="@+id/imgShare"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_below="@+id/txtDescricao"
+               android:layout_marginTop="45dp"
+               android:layout_toRightOf="@+id/imgFavorite"
+               android:src="@drawable/ic_baseline_share" />
+       </RelativeLayout>
 
 
     </androidx.cardview.widget.CardView>

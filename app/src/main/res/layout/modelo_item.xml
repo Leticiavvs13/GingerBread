@@ -8,7 +8,7 @@
     android:layout_height="300dp"
     android:layout_margin="8dp"
     app:cardCornerRadius="5dp"
-    app:cardElevation="20dp">
+    app:cardElevation="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:layout_below="@id/txtNome"
             android:layout_centerInParent="true"
             android:layout_marginTop="10dp"
-            android:background="#010622" />
+            android:background="#fff" />
 
         <TextView
             android:id="@+id/txtDescricao"
@@ -60,9 +60,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtDescricao"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="140dp"
             android:layout_marginTop="45dp"
-            android:layout_toRightOf="@+id/RatingBar"
+            android:layout_toLeftOf="@id/idModelo"
+            android:layout_toRightOf="@+id/idModelo"
+
             android:src="@drawable/ic_baseline_favorite" />
 
         <ImageView
